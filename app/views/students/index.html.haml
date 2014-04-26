@@ -1,0 +1,63 @@
+.filler
+
+%header.navigation
+  .menu-wrapper
+    %a.logo{:href=>"javascript:void(0)"}
+      %img{:src=>"http://rubyprog.nl/public/images/logo.png", :height=> '70px'}
+    
+    %p.navigation-menu-button#js-mobile-menu MENU
+    .nav
+      %ul#navigation-menu
+        %li 
+          %a{:href=>"javascript:void(0)"} Home
+        %li 
+          %a{:href=>"javascript:void(0)"} Ruby
+        %li 
+          %a{:href=>"javascript:void(0)"} Sinatra
+        %li 
+          %a{:href=>"javascript:void(0)"} Contact
+
+
+%section
+
+  %h1 Nieuws
+
+  .single-item
+    - (1..5).each do |i|
+      .comment
+        .comment-image
+          %img{:src=>"https://raw.github.com/Magnus-G/Random/master/placeholder_logo_#{i%3+1}.png"}
+        .comment-content
+          %h1= "Bericht #{i}"
+          %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, aspernatur, quia modi minima debitis tempora ducimus quam vero impedit alias earum nemo error tenetur sed.
+          %p.comment-detail Date or details about this post
+    
+  %h1 Listing students
+
+  %table.table-minimal
+    %thead
+      %tr
+        %th Name
+        %th Group
+        %th
+        %th
+        %th
+
+    %tbody
+      - @students.each do |student|
+        %tr
+          %td= student.name
+          %td= student.group
+          %td
+            = form_tag student, :method => :get do
+              = button_tag 'Show'
+          %td
+            = form_tag edit_student_path(student), :method => :get  do
+              = button_tag 'Edit'
+          %td
+            = form_tag student, :method => :delete, :data => { :confirm => 'Are you sure?' } do
+              = button_tag 'Destroy'
+
+  %br
+
+  = button_to 'New Student', new_student_path, :method => :get

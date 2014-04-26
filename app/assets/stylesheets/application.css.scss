@@ -1,0 +1,72 @@
+//= depend_on_asset "ajax-loader.gif"
+@import "normalize";
+@import "slick";
+@import "bourbon";
+@import "bitters/bitters";
+@import "neat";
+@import "refills/*";
+
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_self
+ *= require slick
+ */
+
+.filler {
+
+	width: 100%;
+	background-color: rgb(192, 214, 182);
+	background-image: url(http://rubyprog.nl/public/images/background.png);
+	background-repeat: repeat;
+	height: 50px;
+}
+
+section {
+  @include outer-container;
+  aside { @include span-columns(3); }
+  article { @include span-columns(9); }
+  background-color: white;
+
+}
+
+.single-item{
+	margin-top: 60px;
+	margin-bottom: 120px;
+	// width: 800px;
+
+}
+
+.slick-dots li {
+	button {
+		background: none;
+		box-shadow: none;
+		text-shadow: none;
+
+	}
+	button:before {
+
+		font-size: 26px;
+	}
+	button:hover:not(:disabled) {
+		background-image: none;
+		background-color: transparent;
+		box-shadow: none;
+
+	}
+	button:active:not(:disabled) {
+		background-image: none;
+		background-color: transparent;
+		box-shadow: none;
+		border: none;
+	}
+}
