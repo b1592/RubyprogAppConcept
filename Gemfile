@@ -46,3 +46,9 @@ gem 'bitters'
 gem 'refills', git: 'git://github.com/thoughtbot/refills.git'
 gem 'jquery-datatables-rails', git: 'git://github.com/rweng/jquery-datatables-rails.git'
 gem 'slick_rails', github: 'guyisra/slickjs_rails'
+
+group :development, :test do
+  gem 'spring-commands-rspec'
+  gem 'guard-rspec'
+  gem 'rb-fsevent' if `uname` =~ /Darwin/
+end
