@@ -22,8 +22,8 @@ $(document).ready ->
     "sDom": "t",
     "bDeferRender": true,
     "aoColumnDefs": [
-      { "bSearchable": false, "aTargets": [ 3, 4, 5 ] },
-      { "bSortable": false, "aTargets": [ 3, 4, 5 ] }
+      { "bSearchable": false, "aTargets": [ 4, 5, 6 ] },
+      { "bSortable": false, "aTargets": [ 4, 5, 6 ] }
     ]
   } )
 
@@ -46,3 +46,21 @@ $(document).ready ->
     )
   $('input[name="toggle-graded"]').change ->
     oTable.fnFilter("false|" + $(this).prop('checked') + "", 2, true)
+  $('#course-ruby').click ->
+    if $(this).hasClass('active')
+      oTable.fnFilter("!ruby", 3, true)
+    else
+      oTable.fnFilter("ruby", 3)
+    $(this).toggleClass()
+
+  $('#course-sinatra').click ->
+    if $(this).hasClass('active')
+      oTable.fnFilter("!sinatra", 3, true)
+    else
+      oTable.fnFilter("sinatra", 3)
+    $(this).toggleClass()
+
+
+
+
+
