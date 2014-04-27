@@ -40,10 +40,52 @@ section {
 }
 
 .single-item{
-	margin-top: 60px;
-	margin-bottom: 120px;
+	margin-top: 20px;
+	margin-bottom: 60px;
 	// width: 800px;
+	border-bottom: 0px solid transparentize(#000, .9);
 
+}
+
+.table-ui {
+	margin-top: 20px;
+
+	> * {
+		float: left;
+		text-align: center;
+		margin-right: 20px;
+	}
+	.search {
+		float:right;
+
+		.search-bar .search-and-submit input {
+			width: 280px;
+		}
+	}
+}
+
+table.table-minimal.dataTable {
+	margin: 3px;
+}
+
+.dataTables_filter {
+	text-align: right;
+	float: right;
+
+	input[type="text"] {
+		margin-left: 5px;
+		width: 240px;
+		display: inline-block;
+	}
+}
+
+.dataTables_wrapper .toolbar {
+	float: left;
+
+	* {
+		display: inline-block;
+		vertical-align: baseline;
+	}
 }
 
 .slick-dots li {
@@ -55,7 +97,7 @@ section {
 	}
 	button:before {
 
-		font-size: 26px;
+		font-size: 30px;
 	}
 	button:hover:not(:disabled) {
 		background-image: none;

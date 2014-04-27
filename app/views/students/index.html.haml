@@ -20,7 +20,7 @@
 
 %section
 
-  %h1 Nieuws
+  %h2 Nieuws
 
   .single-item
     - (1..5).each do |i|
@@ -32,13 +32,37 @@
           %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, aspernatur, quia modi minima debitis tempora ducimus quam vero impedit alias earum nemo error tenetur sed.
           %p.comment-detail Date or details about this post
     
-  %h1 Listing students
+  %hr
 
+  %h2 Studenten
+
+  %div.table-ui
+    .table-ui-control
+      %label Nagekeken
+      .switch-container
+        %input#switch-toggle-1.switch-checkbox{checked: "checked", name: "toggle-graded", type: "checkbox"}/
+        %label.switch-label{for: "switch-toggle-1"}
+          .switch-inner
+          .switch-toggle-switch
+
+    .table-ui-control
+      %label Cursus
+      .button-group
+        %button.active Ruby
+        %button.active Sinatra
+
+    .table-ui-control.search#table-search-bar
+      %label Zoeken
+      .search-bar
+        .search-and-submit
+          %input{placeholder: "", type: "search"}
+      
   %table.table-minimal
     %thead
       %tr
-        %th Name
-        %th Group
+        %th Naam
+        %th Klas
+        %th Nagekeken
         %th
         %th
         %th
@@ -48,6 +72,7 @@
         %tr
           %td= student.name
           %td= student.group
+          %td= student.graded
           %td
             = form_tag student, :method => :get do
               = button_tag 'Show'

@@ -19,24 +19,30 @@ $(menuToggle).on('click', (e) ->
 $(document).ready ->
   oTable = $('table').dataTable( {
     "sScrollY": "400px",
-    "sDom": "f<'toolbar'>t",
+    "sDom": "t",
     "bDeferRender": true,
     "aoColumnDefs": [
-      { "bSearchable": false, "aTargets": [ 2, 3, 4 ] },
-      { "bSortable": false, "aTargets": [ 2, 3, 4 ] }
+      { "bSearchable": false, "aTargets": [ 3, 4, 5 ] },
+      { "bSortable": false, "aTargets": [ 3, 4, 5 ] }
     ]
   } )
 
-  $("div.toolbar").html('<button id="klas">Klas</button>')
-
+  
   $('.single-item').slick( {
     dots: true,
     arrows: false,
     slidesToShow: 1,
     infinite: false,
+    autoplay: true,
+    autoplaySpeed: 4000,
     slide: '.comment'
   } )
   
   $('#klas').click ->
     oTable.fnFilter('5', 1)
 
+  $('#table-search-bar input').on('input', ->
+    oTable.fnFilter( $( this ).val() )
+    )
+  $('input[name="toggle-graded"]').change ->
+    oTable.fnFilter("false|" + $(this).prop('checked') + "", 2, true)
