@@ -70,9 +70,3 @@ $(document).ready ->
       oTable.fnSetColumnVis( 3, false )
       $(this).addClass("active")
       $('#course-ruby').removeClass("active")
-  
-  
-
-
-
-

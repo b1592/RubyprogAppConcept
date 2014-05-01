@@ -11,3 +11,47 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 20140501125427) do
+
+  create_table "assignments", force: true do |t|
+    t.string   "title"
+    t.boolean  "completed"
+    t.datetime "due_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "student_id"
+  end
+
+  create_table "courses", force: true do |t|
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "courses_students", id: false, force: true do |t|
+    t.integer "student_id"
+    t.integer "course_id"
+  end
+
+  create_table "courses_teachers", force: true do |t|
+    t.integer "course_id"
+    t.integer "teacher_id"
+  end
+
+  create_table "students", force: true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "teachers", force: true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+end
