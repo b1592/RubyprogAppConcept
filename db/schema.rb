@@ -11,18 +11,3 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140428071033) do
-
-  create_table "students", force: true do |t|
-    t.string   "name"
-    t.string   "group"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.boolean  "graded"
-    t.string   "courses"
-    t.string   "course_group"
-    t.string   "problems_ruby"
-    t.string   "problems_sinatra"
-  end
-
-end
