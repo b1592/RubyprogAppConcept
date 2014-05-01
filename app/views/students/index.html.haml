@@ -49,7 +49,7 @@
       %label Cursus
       .button-group
         %button#course-ruby.active Ruby
-        %button#course-sinatra.active Sinatra
+        %button#course-sinatra Sinatra
 
     .table-ui-control.search#table-search-bar
       %label Zoeken
@@ -57,13 +57,14 @@
         .search-and-submit
           %input{placeholder: "", type: "search"}
       
-  %table.table-minimal
+  %table.table-borders
     %thead
       %tr
         %th Naam
         %th Klas
         %th Nagekeken
-        %th Cursussen
+        %th Opdrachten Ruby
+        %th Opdrachten Sinatra
         %th
         %th
         %th
@@ -74,7 +75,8 @@
           %td= student.name
           %td= student.group
           %td= student.graded
-          %td= student.courses
+          %td= student.problems_ruby
+          %td= student.problems_sinatra
           %td
             = form_tag student, :method => :get do
               = button_tag 'Show'

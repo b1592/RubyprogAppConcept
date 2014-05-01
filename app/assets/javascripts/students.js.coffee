@@ -22,21 +22,28 @@ $(document).ready ->
     "sDom": "t",
     "bDeferRender": true,
     "aoColumnDefs": [
-      { "bSearchable": false, "aTargets": [ 4, 5, 6 ] },
-      { "bSortable": false, "aTargets": [ 4, 5, 6 ] }
+      { "bSearchable": false, "aTargets": [ 5, 6, 7 ] },
+      { "bSortable": false, "aTargets": [ 5, 6, 7 ] }
     ]
   } )
-
+  oTable.fnSetColumnVis( 4, false )
   
   $('.single-item').slick( {
     dots: true,
     arrows: false,
     slidesToShow: 1,
     infinite: false,
+    vertical: true,
     autoplay: true,
     autoplaySpeed: 4000,
     slide: '.comment'
   } )
+
+  fnShowHide = (iCol) ->
+    bVis = oTable.fnSettings().aoColumns[iCol].bVisible
+    oTable.fnSetColumnVis( iCol, bVis ? false : true )
+    alert(oTable.fnSetColumnVis)
+    
   
   $('#klas').click ->
     oTable.fnFilter('5', 1)
@@ -48,18 +55,23 @@ $(document).ready ->
     oTable.fnFilter("false|" + $(this).prop('checked') + "", 2, true)
   $('#course-ruby').click ->
     if $(this).hasClass('active')
-      oTable.fnFilter("!ruby", 3, true)
+      
     else
-      oTable.fnFilter("ruby", 3)
-    $(this).toggleClass()
+      oTable.fnSetColumnVis( 3, true )
+      oTable.fnSetColumnVis( 4, false )
+      $(this).addClass("active")
+      $('#course-sinatra').removeClass("active")
 
   $('#course-sinatra').click ->
     if $(this).hasClass('active')
-      oTable.fnFilter("!sinatra", 3, true)
+      
     else
-      oTable.fnFilter("sinatra", 3)
-    $(this).toggleClass()
-
+      oTable.fnSetColumnVis( 4, true )
+      oTable.fnSetColumnVis( 3, false )
+      $(this).addClass("active")
+      $('#course-ruby').removeClass("active")
+  
+  
 
 
 
