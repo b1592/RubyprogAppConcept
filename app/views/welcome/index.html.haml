@@ -1,1 +1,6 @@
 %h1 Hallo!
+
+- if student_signed_in?
+  = render "student_home"
+- if teacher_signed_in?
+  = render "teacher_home" 
