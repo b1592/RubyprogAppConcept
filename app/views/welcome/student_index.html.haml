@@ -1,2 +1,5 @@
-%p Hallo leerling!
-%p= link_to "Sign out", destroy_student_session_path, method: :delete 
+%p= "Hallo #{current_student}"
+%p= link_to "Sign out", destroy_student_session_path, method: :delete
+
+= form_for @assignment do |f|
+  = f.file_field :assignment

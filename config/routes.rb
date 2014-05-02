@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
+  root "welcome#index"
+
+  resources :assignments, only: [:create, :destroy, :update]
 
   devise_for :teachers
   devise_for :students
-  root "welcome#index"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
